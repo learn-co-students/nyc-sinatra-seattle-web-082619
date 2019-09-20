@@ -2,8 +2,8 @@
 
 <form method="post" action="/landmarks/<%=@landmark.id%>">
  
-  <label>Name:<input value="<%= @landmark.name %>" type="text" name="name" id="new_landmark"></label>
-  <label>Year:<input value="<%= @landmark.year_completed %>" type="text" name="year_completed"></label>
+  <label>Name:<input value="<%= @landmark.name %>" type="text" name="landmark[name]" id="name"></label>
+  <label>Year:<input value="<%= @landmark.year_completed %>" type="text" name="landmark[year_completed]" id="year_completed"></label>
 
   <h3>Figures</h3>
   <% @figures.each do |figure| %>
@@ -20,7 +20,7 @@
   <br>
   
   <input type="hidden" name="_method" value="patch">
-  <input type="submit">
+  <input type="submit" id="Edit Landmark">
 </form>
 
 <a class="button" href="/landmarks">Landmarks</a>

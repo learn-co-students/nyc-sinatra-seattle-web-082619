@@ -16,7 +16,7 @@ class FiguresController < ApplicationController
     @figure = Figure.create(params[:figure])
 
     create_title(params, @figure) unless params[:title][:name].empty?
-    create_landmark(params, @figure) unless landmark_is_empty?(params)
+    create_landmark(params, @figure) unless params[:landmark][:name].empty?
 
     redirect "/figures/#{@figure.id}"
   end

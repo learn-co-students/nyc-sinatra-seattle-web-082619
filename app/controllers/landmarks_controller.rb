@@ -10,7 +10,7 @@ class LandmarksController < ApplicationController
   end
 
   post '/landmarks' do
-    @landmark = Landmark.create(params)
+    @landmark = Landmark.create(params[:landmark])
     redirect "/landmarks/#{@landmark.id}"
   end
 
@@ -27,9 +27,7 @@ class LandmarksController < ApplicationController
 
   patch '/landmarks/:id' do
     @landmark = Landmark.find(params[:id])
-    @landmark.update(figure_id: params[:figure_id],
-                     name: params[:name],
-                     year_completed: params[:year_completed])
+    @landmark.update(params[:landmark])
 
     unless params[:figure][:name].empty?
       @figure = Figure.create(params[:figure])
