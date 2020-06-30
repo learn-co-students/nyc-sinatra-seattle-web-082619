@@ -1,0 +1,35 @@
+<h2> <%= @figure.name %></h2>
+
+<h3>Titles</h3>
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+  <% @titles.each do |title|%>
+    <tr>
+        <td><%= title.name %></td>
+    </tr>
+  <% end %>
+<table>
+
+<h3>Landmakers</h3>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Year Completed</th>
+  </tr>
+  <% @landmarks.each do |landmark|%>
+    <tr>
+      <td><%= landmark.name %></td>
+      <td><%= landmark.year_completed %></td>
+    </tr>
+  <% end %>
+<table>
+
+<form method="post" action="/figures/<%= @figure.id %>">
+  <input type="hidden" name="_method" value="delete" >
+  <input type="submit" value="Delete">
+</form>
+
+<a class="button" href="/figures/<%= @figure.id %>/edit">Edit Figure</a>
+<a class="button" href="/figures">Figures</a>
